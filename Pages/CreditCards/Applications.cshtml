@@ -1,0 +1,42 @@
+﻿@page
+@model CreditCardPortal.Pages.CreditCards.ApplicationsModel
+@{
+    ViewData["Title"] = "Your Credit Card Applications";
+}
+<div class="container">
+    <h2 class="mb-4 text-center">Your Credit Card Applications</h2>
+    @if (Model.CardApplications != null && Model.CardApplications.Any())
+    {
+        <div class="row">
+            @foreach (var app in Model.CardApplications)
+            {
+                <div class="col-md-4 mb-4">
+                    <div class="card h-100 shadow-sm">
+                        <div class="card-header bg-primary text-white">
+                            Application #@app.Id
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title">@app.CardType Credit Card</h5>
+                            <p class="card-text">
+                                <strong>Applied On:</strong> @app.ApplicationDate.ToLocalTime().ToString("f")<br />
+                                <strong>Status:</strong> @app.Status
+                            </p>
+                        </div>
+                        <div class="card-footer text-center">
+                            <a asp-page="/CreditCards/ApplicationDetails" asp-route-id="@app.Id" class="btn btn-outline-primary btn-sm">View Details</a>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    }
+    else
+    {
+        <div class="alert alert-info">
+            No applications found.
+        </div>
+    }
+    <div class="text-center">
+        <a asp-page="/Index" class="btn btn-primary mt-3">Return to Home</a>
+    </div>
+</div>

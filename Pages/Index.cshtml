@@ -1,0 +1,38 @@
+﻿@page
+@using Microsoft.AspNetCore.Http
+@inject CreditCardPortal.Data.ApplicationDbContext _context
+@{
+    var customerId = HttpContext.Session.GetInt32("CustomerId");
+}
+<div class="container">
+    <h2 class="mb-4 text-center">Welcome to BankFinity</h2>
+    @if (customerId != null)
+    {
+        <div class="row">
+            <div class="col-md-6 mb-3">
+                <div class="card h-100">
+                    <div class="card-body text-center">
+                        <h5 class="card-title">Apply for a Credit Card</h5>
+                        <p class="card-text">Start your application and complete the KYC process to apply.</p>
+                        <a asp-page="/Account/Kyc" class="btn btn-primary">Apply Now</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 mb-3">
+                <div class="card h-100">
+                    <div class="card-body text-center">
+                        <h5 class="card-title">View Applications</h5>
+                        <p class="card-text">Check the status of your submitted credit card applications.</p>
+                        <a asp-page="/CreditCards/Applications" class="btn btn-secondary">View Applications</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+    else
+    {
+        <div class="text-center">
+            <a asp-page="/Account/Login" class="btn btn-primary">Login</a>
+        </div>
+    }
+</div>

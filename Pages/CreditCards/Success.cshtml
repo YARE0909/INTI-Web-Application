@@ -1,0 +1,14 @@
+﻿@page
+@model CreditCardPortal.Pages.CreditCards.SuccessModel
+@{
+    ViewData["Title"] = "Application Successful";
+}
+<div class="row justify-content-center">
+    <div class="col-md-8 text-center">
+        <h2 class="mb-4">Application Successful</h2>
+        <p>Your application for the <strong>@Model.AppliedCard</strong> credit card has been submitted successfully on @Model.ApplicationDate.ToLocalTime().ToString("g").</p>
+        <p>
+            <a asp-page="/Index" class="btn btn-primary">Return to Home</a>
+        </p>
+    </div>
+</div>

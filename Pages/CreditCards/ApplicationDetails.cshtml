@@ -1,0 +1,36 @@
+﻿@page "{id:int}"
+@model CreditCardPortal.Pages.CreditCards.ApplicationDetailsModel
+@{
+    ViewData["Title"] = "Application Details";
+}
+<div class="container">
+    <h2 class="mb-4 text-center">Application Details</h2>
+    @if (Model.Application != null)
+    {
+        <div class="card">
+            <div class="card-header bg-primary text-white">
+                Application #@Model.Application.Id - @Model.Application.Status
+            </div>
+            <div class="card-body">
+                <h5 class="card-title">@Model.Application.CardType Credit Card</h5>
+                <p class="card-text">
+                    <strong>Applied On:</strong> @Model.Application.ApplicationDate.ToLocalTime().ToString("f")<br />
+                    <strong>Status:</strong> @Model.Application.Status<br />
+                    @if (!string.IsNullOrEmpty(Model.Application.Remarks))
+                    {
+                        <strong>Remarks:</strong> @Model.Application.Remarks
+                    }
+                </p>
+            </div>
+            <div class="card-footer text-center">
+                <a asp-page="/CreditCards/Applications" class="btn btn-primary btn-sm">Back to Applications</a>
+            </div>
+        </div>
+    }
+    else
+    {
+        <div class="alert alert-danger">
+            Application not found.
+        </div>
+    }
+</div>

@@ -1,0 +1,43 @@
+﻿@page
+@model CreditCardPortal.Pages.Account.RegisterModel
+@{
+    ViewData["Title"] = "Register";
+}
+
+<h2>Register</h2>
+
+<form method="post">
+    <div>
+        <label asp-for="Customer.FullName"></label>
+        <input asp-for="Customer.FullName" />
+    </div>
+    <div>
+        <label asp-for="Customer.Email"></label>
+        <input asp-for="Customer.Email" />
+    </div>
+    <div>
+        <label asp-for="Password"></label>
+        <input asp-for="Password" type="password" />
+    </div>
+    <div>
+        <label asp-for="Customer.Address"></label>
+        <input asp-for="Customer.Address" />
+    </div>
+    <div>
+        <label asp-for="Customer.PhoneNumber"></label>
+        <input asp-for="Customer.PhoneNumber" />
+    </div>
+    <div>
+        <label asp-for="Customer.EmploymentStatus"></label>
+        <input asp-for="Customer.EmploymentStatus" />
+    </div>
+    <div>
+        <label asp-for="Customer.MaritalStatus"></label>
+        <input asp-for="Customer.MaritalStatus" />
+    </div>
+    <div>
+        <label asp-for="Customer.DateOfBirth"></label>
+        <input asp-for="Customer.DateOfBirth" type="date" />
+    </div>
+    <button type="submit">Register</button>
+</form>
